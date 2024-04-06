@@ -1,12 +1,14 @@
 from .prick.toolkit import Clear, Font
 from .prick.routing import Structure
 from .prick.history import History
-from .Pages import Routing
+from .Pages import Routing as Page_Routing
+from .Help import Routing as Help_Routing
 import os
 
 tcolor = Font.Color.Text
 
-routing = Routing()
+page_routing = Page_Routing()
+help_routing = Help_Routing()
 
 class Menu:
     def __init__(self):
@@ -54,11 +56,11 @@ class Menu:
                     if (menu_items[typed][0].lower() != "exit"):
                         self.Show_Menu(self.history.list[-2])
                 elif parts[0] == "page":
-                    routing[parts[1]].ran()
+                    page_routing[parts[1]].run()
                 elif parts[0] == "menu":
                     self.Show_Menu(parts[1])
                 elif parts[0] == "help":
-                    print("bello")
+                    help_routing[parts[1]].run()
             except ValueError as e:
                 self.Show_Menu(Menu.Structure.notfound)
             except Exception as e:
@@ -67,4 +69,4 @@ class Menu:
                 print(e)
                 print("\n"*2+tcolor.RESET)
                 print("If you read this while running:\n\tPlease report the error at the GitHub repositorie and help the community.\n\nPress any key to continue.")
-                os.system("pause > null")
+                os.system("pause > nul")
