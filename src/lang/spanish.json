@@ -1,0 +1,10 @@
+{
+    "Menu": {
+        "headerdefault"     : "Directorios disponibles  ",
+        "errordefault"      : "Redirecciones disponibles",
+        "error404message"   : "Componente no encontrado."
+    },
+    "Filemanager": {
+        "": ""
+    }
+}

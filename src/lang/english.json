@@ -1,0 +1,7 @@
+{
+    "Menu": {
+        "headerdefault"     : "Available directories    ",
+        "errordefault"      : "Available redirects      ",
+        "error404message"   : "  Component not found.   "
+    }
+}
