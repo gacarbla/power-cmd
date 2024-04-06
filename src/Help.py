@@ -1,9 +1,9 @@
-from .help import Config
+from .help import config
 
 class Routing:
     def __init__(self):
         self.pages = {
-            "Config": Config.Start()
+            "config": config.Start()
         }
 
     def __getitem__(self, key):
