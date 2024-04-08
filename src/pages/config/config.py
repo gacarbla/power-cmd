@@ -1,6 +1,6 @@
-from ..prick.toolkit import Clear, Font, Language
+from ...prick.toolkit import Clear, Font, Language
 from configparser import ConfigParser
-from ..prick.fileroutes import FRoutues
+from ...prick.fileroutes import FRoutues
 from time import sleep
 import keyboard
 
@@ -40,6 +40,11 @@ class Start:
                     "default": False,
                     "value": "spanish"
                 },
+                {
+                    "name": "Français",
+                    "default": False,
+                    "value": "francais"
+                },
             ]
         },
         {
@@ -74,14 +79,14 @@ class Start:
             if (keymap != keymapCache):
                 filename = Language.Translation.Get_Language()
                 filename
+                Config_file = FRoutues.config
+                Parser = ConfigParser()
+                Parser.read(Config_file)
                 Clear.Auto()
                 if (keymap["1"] and selected == 1):
                     keymap = default.copy()
                     break
-                elif (keymap["28"] and selected == 1):
-                    keymap = default.copy()
-                    selected = 1
-                elif (keymap["1"] or keymap["28"]):
+                elif (keymap["28"]):
                     keymap = default.copy()
                     selected = 1
                 elif (keymap["72"]):   # UP
@@ -98,20 +103,15 @@ class Start:
                         selected = selected + 1
                 elif (keymap["75"]): # LEFT
                     keymap["75"] = False
-                    if (optionSelected > 0):
-                        option_move = -1
+                    option_move = -1 if optionSelected > 0 else 0
                 elif (keymap["77"]): # RIGHT
                     keymap["77"] = False
-                    if (optionSelected < len(Start.options[selected-1]["options"])-1):
-                        option_move = 1
-                print(Font.Color.Text.GREEN+"Configuration"+Font.Color.Text.RESET)
+                    option_move = 1 if optionSelected < len(Start.options[selected-1]["options"])-1 else 0
+                print(Font.Color.Text.GREEN+trans(filename, "Config", "title")+Font.Color.Text.RESET)
                 print("\n"*2)
                 for index, (value) in enumerate(Start.options, 1):
                     option_value = -1
                     default_value = -1
-                    Config_file = FRoutues.config
-                    Parser = ConfigParser()
-                    Parser.read(Config_file)
                     setted = Parser["Settings"][value["variable"]]
                     for i, (opcion) in enumerate(value["options"], 1):
                         if (opcion["value"] == setted):
@@ -119,19 +119,17 @@ class Start:
                         elif (opcion["default"]):
                             default_value = i-1
                     valor_ajuste = ""
-                    if (option_value<0):
-                        option_value = default_value
-                    if (selected and index == selected):
-                        option_value = option_value + option_move
-                        option_move = 0
-                        optionSelected = option_value
+                    option_value = default_value if option_value < 0 else option_value
+                    option_value = option_value + option_move if selected == index else option_value
+                    option_move = 0 if selected == index else option_move
+                    optionSelected = option_value if selected == index else optionSelected
                     valor_ajuste = value["options"][option_value]["name"]
                     Parser.set("Settings", value["variable"], value["options"][option_value]["value"])
                     with open(FRoutues.config, 'w') as configfile:
                         Parser.write(configfile)
                     condition = selected and selected == index
                     tcolor = Font.Color.Text
-                    title = f"{tcolor.LIGHTBLUE if condition else tcolor.WHITE} {">" if condition else " "} {value['name']} {"."*(33-len(value["name"]))} "
+                    title = f"{tcolor.LIGHTBLUE if condition else tcolor.WHITE} {"→" if condition else " "} {value['name']} {"."*(33-len(value["name"]))} "
                     label = f"{tcolor.YELLOW}{"<"if condition else " "} {valor_ajuste} {" "*(10-len(valor_ajuste))} {">"if condition else " "}{tcolor.RESET}"
                     print(f"{title} {label}")
                 print("\n"*2)
@@ -139,6 +137,7 @@ class Start:
                 print(f"\t{tcolor.LIGHTMAGENTA}[↑/↓] {tcolor.WHITE}{trans(filename, "Config", "navigation_1")}{" "*(15-(len(trans(filename, "Config", "navigation_1"))))}{tcolor.LIGHTMAGENTA}[←/→] {tcolor.WHITE}{trans(filename, "Config", "navigation_2")}")
                 keymapCache = keymap.copy()
             sleep(0.05)
+
     @staticmethod
     def handler(event):
         f = keymap.get(f"{event.scan_code}", None)
