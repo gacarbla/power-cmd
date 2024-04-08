@@ -15,7 +15,8 @@ class Structure:
         Exit = "?return"
         DeviceDiagnosis = "?menu:Diagnosis"
         FileManager = "?menu:Filemanager"
-        Configuration = "?help:config"
+        Tools = "?menu:Tools"
+        Configuration = "?config:config"
     class E404:
         header = error404header
         Tablehead = errortablehead
@@ -33,5 +34,10 @@ class Structure:
         By_FirstWord = "?page:fm_word"
         By_FirstExtension = "?page:fm_extension"
         Help = "?help:fm_help"
+    class Tools:
+        Tablehead = defaulttablehead
+        Return = "?return"
+        Key_logger = "?page:tl_keylogger"
+        Help = "?help:tl_help"
     home = "Home"
     notfound = "E404"
