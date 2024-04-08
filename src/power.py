@@ -3,12 +3,14 @@ from .prick.routing import Structure
 from .prick.history import History
 from .Pages import Routing as Page_Routing
 from .Help import Routing as Help_Routing
+from .Config import Routing as Config_Routing
 import os
 
 tcolor = Font.Color.Text
 
 page_routing = Page_Routing()
 help_routing = Help_Routing()
+config_routing = Config_Routing()
 
 class Menu:
     def __init__(self):
@@ -61,6 +63,8 @@ class Menu:
                     self.Show_Menu(parts[1])
                 elif parts[0] == "help":
                     help_routing[parts[1]].run()
+                elif parts[0] == "config":
+                    config_routing[parts[1]].run()
             except ValueError as e:
                 self.Show_Menu(Menu.Structure.notfound)
             except Exception as e:
