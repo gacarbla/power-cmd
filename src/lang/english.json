@@ -8,6 +8,7 @@
         "": ""
     },
     "Config": {
+        "title": "Configuration",
         "navigation_esc": "Exit",
         "navigation_debug": "Debug",
         "navigation_1": "Navigate",
