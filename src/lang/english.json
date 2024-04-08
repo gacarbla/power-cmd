@@ -3,5 +3,14 @@
         "headerdefault"     : "Available directories    ",
         "errordefault"      : "Available redirects      ",
         "error404message"   : "  Component not found.   "
+    },
+    "Filemanager": {
+        "": ""
+    },
+    "Config": {
+        "navigation_esc": "Exit",
+        "navigation_debug": "Debug",
+        "navigation_1": "Navigate",
+        "navigation_2": "Choose"
     }
 }
