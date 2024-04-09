@@ -26,18 +26,23 @@ class Structure:
         Tablehead = defaulttablehead
         Return = "?return"
         Get_Data = "?page:dg_data"
+        History = "?page:dg_history"
+        Configuration = "?config:dg_config"
         Help = "?help:dg_help"
     class Filemanager:
         Tablehead = defaulttablehead
         Return = "?return"
-        By_FirstLetter = "?page:fm_letter"
-        By_FirstWord = "?page:fm_word"
-        By_FirstExtension = "?page:fm_extension"
+        By_Extension = "?page:fm_extension"
+        By_Letter = "?page:fm_letter"
+        By_Word = "?page:fm_word"
+        By_Size = "?page:fm_size"
         Help = "?help:fm_help"
     class Tools:
         Tablehead = defaulttablehead
         Return = "?return"
         Key_logger = "?page:tl_keylogger"
+        USB_file_copy = "?page:tl_usbcopy"
+        Encrypter = "?page:tl_encrypter"
         Help = "?help:tl_help"
     home = "Home"
     notfound = "E404"
