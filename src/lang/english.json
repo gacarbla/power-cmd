@@ -1,7 +1,7 @@
 {
     "Menu": {
-        "headerdefault"     : "Available directories    ",
-        "errordefault"      : "Available redirects      ",
+        "headerdefault"     : "Available directories",
+        "errordefault"      : "Available redirects",
         "error404message"   : "  Component not found.   "
     },
     "Filemanager": {

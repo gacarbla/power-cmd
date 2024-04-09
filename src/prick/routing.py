@@ -6,8 +6,8 @@ bcolor = Font.Color.Back
 filename = Language.Translation.Get_Language()
 filename
 error404header = f"!:{tcolor.RED}\n\n{" "*5}{bcolor.RED}{tcolor.BLACK}{" "*15}4 0 4{" "*15}{bcolor.RESET}{tcolor.RESET}\n\n{" "*10}{trans(filename, "Menu", "error404message")}\n\n\n{tcolor.RESET}"
-defaulttablehead = f"!:{bcolor.WHITE}{tcolor.BLACK}\n {trans(filename, "Menu", "headerdefault")}{" "*18}\n{bcolor.RESET}{tcolor.RESET}"
-errortablehead = f"!:{bcolor.WHITE}{tcolor.BLACK}\n {trans(filename, "Menu", "errordefault")}{" "*18}\n{bcolor.RESET}{tcolor.RESET}"
+defaulttablehead = f"!:{bcolor.WHITE}{tcolor.BLACK}\n {trans(filename, "Menu", "headerdefault")}{" "*(43-len(trans(filename, "Menu", "headerdefault")))}\n{bcolor.RESET}{tcolor.RESET}"
+errortablehead = f"!:{bcolor.WHITE}{tcolor.BLACK}\n {trans(filename, "Menu", "errordefault")}{" "*(43-len(trans(filename, "Menu", "errordefault")))}\n{bcolor.RESET}{tcolor.RESET}"
 
 class Structure:
     class Home:

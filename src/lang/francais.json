@@ -1,7 +1,7 @@
 {
     "Menu": {
-        "headerdefault"     : "Repertoires disponibles  ",
-        "errordefault"      : "Redirections disponibles ",
+        "headerdefault"     : "Repertoires disponibles",
+        "errordefault"      : "Redirections disponibles",
         "error404message"   : " Composant introuvable.  "
     },
     "Filemanager": {
