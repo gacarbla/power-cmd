@@ -1,0 +1,5 @@
+@ECHO OFF
+
+START /B pip3 install -r requirements.txt  2>NUL >NUL
+echo [101;93mINSTALLING REQUIREMENTS[101;30m DO NOT CLOSE THIS WINDOW MANUALLY[0m
+cd ../
