@@ -43,7 +43,7 @@ class Start:
                 {
                     "name": "Français",
                     "default": False,
-                    "value": "francais"
+                    "value": "french"
                 },
             ]
         },
