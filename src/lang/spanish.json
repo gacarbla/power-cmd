@@ -1,0 +1,17 @@
+{
+    "Menu": {
+        "headerdefault"     : "Directorios disponibles",
+        "errordefault"      : "Redirecciones disponibles",
+        "error404message"   : "Componente no encontrado."
+    },
+    "Filemanager": {
+        "": ""
+    },
+    "Config": {
+        "title": "Configuracion",
+        "navigation_esc": "Salir",
+        "navigation_debug": "Debug",
+        "navigation_1": "Navegar",
+        "navigation_2": "Elegir"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "Menu": {
+        "headerdefault"     : "Repertoires disponibles",
+        "errordefault"      : "Redirections disponibles",
+        "error404message"   : " Composant introuvable.  "
+    },
+    "Filemanager": {
+        "": ""
+    },
+    "Config": {
+        "title": "Configuration",
+        "navigation_esc": "Sortir",
+        "navigation_debug": "Debug",
+        "navigation_1": "Parcourir",
+        "navigation_2": "Choisir"
+    }
+}
