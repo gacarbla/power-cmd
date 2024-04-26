@@ -161,14 +161,16 @@ function Wizard(){
 (1) Uninstall
 (2) Reinstall last version
 (3) Exit
-"@          $choice = Read-Host "`n [93m>_[0m "
+"@          
+            $choice = Read-Host -Prompt "`n [93m>_[0m "
             if ($choice -eq 1) {
-                git clone "https://github.com/gacarbla/power-cmd.git"
                 $rutaActual = Get-Location
                 $gitPath = Join-Path -Path $rutaActual -ChildPath "power-cmd"
                 $srcPath = Join-Path -Path $rutaActual -ChildPath "src"
+                $mainFile = Join-Path -Path $rutaActual -ChildPath "main.py"
                 Remove-Item -Path $gitPath -Force -Recurse
                 Remove-Item -Path $srcPath -Force -Recurse
+                Remove-Item -Path $mainFile -Force -Recurse
             } elseif ($choice -eq 2) {
                 Install
             }
@@ -178,7 +180,7 @@ function Wizard(){
 (1) Retry installation
 (2) Exit
 "@
-            $choice = Read-Host "`n [93m>_[0m "
+            $choice = Read-Host -Prompt "`n [93m>_[0m "
             if ($choice -eq 1) {
                 Install
             }
@@ -188,7 +190,7 @@ function Wizard(){
 (1) Install last version
 (2) Exit
 "@
-            $choice = Read-Host "`n [93m>_[0m "
+            $choice = Read-Host -Prompt "`n [93m>_[0m "
             if ($choice -eq 1) {
                 Install
             }
@@ -273,7 +275,7 @@ This window will be closed in 15 seconds.
 
 function Get-FilePath(){
     $relativeDir = Get-Location
-    $fileName = "installation_data"
+    $fileName = ".installation_data"
     $fileDir = Join-Path -Path $relativeDir -ChildPath $fileName
     return $fileDir
 }
@@ -295,17 +297,26 @@ Please wait
         $rutaActual = Get-Location
         $gitPath = Join-Path -Path $rutaActual -ChildPath "power-cmd"
         $srcFolder = Join-Path -Path $rutaActual -ChildPath "power-cmd\src"
+        $mainFile = Join-Path -Path $rutaActual -ChildPath "power-cmd\main.py"
         if (Test-Path $srcFolder -PathType Container) {
-            Move-Item -Path $srcFolder -Destination $rutaActual -Force
+            try {
+                Move-Item -Path $srcFolder -Destination $rutaActual -Force
+            } catch {}
+            try {
+                Move-Item $mainFile -Destination $rutaActual -Force
+            } catch {}
             Remove-Item -Path $gitPath -Force -Recurse
+            Pause
             return $true
         }
         if (Test-Path $gitPath -PathType Container) {
             Remove-Item -Path $gitPath -Force -Recurse
         }
+        Pause
         return $false
     } catch {
         Write-Host "ERROR"
+        Pause
         return $false
     }
 }

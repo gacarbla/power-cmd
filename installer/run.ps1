@@ -8,7 +8,7 @@ function Write-Header(){
 
 function Get-FilePath(){
     $relativeDir = Get-Location
-    $fileName = "installation_data"
+    $fileName = ".installation_data"
     $fileDir = Join-Path -Path $relativeDir -ChildPath $fileName
     return $fileDir
 }
