@@ -327,9 +327,7 @@ if ($connected) {
 [31mConnection error:[0m
     Please check your internet connection and try again.
 
-This window will be closed in 5 seconds.
+You can close this window.
 "@
-    Start-Sleep -Seconds 5;
+    Start-Sleep -Seconds 3600
 }
-
-Exit-PSSession;
