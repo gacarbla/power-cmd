@@ -2,6 +2,17 @@ import json
 import os
 from configparser import ConfigParser
 
+def fixCHars(text):
+    text = text.replace("Ã", "\u00c1").replace("Ã¡", "\u00e1") # á
+    text = text.replace("Ã‰", "\u00c9").replace("Ã©", "\u00e9") # é
+    text = text.replace("Ã", "\u00cd").replace("Ã­", "\u00ed") # í
+    text = text.replace("Ã“", "\u00d3").replace("Ã³", "\u00f3") # ó
+    text = text.replace("Ãš", "\u00da").replace("Ãº", "\u00fa") # ú
+
+    text = text.replace("Ãš", "\u00d1").replace("Ã±", "\u00f1") # ñ
+    text = text.replace("Â¿", "\u00bf")                         # ¿
+    return text
+
 class Translation:
 
     @staticmethod
@@ -26,7 +37,7 @@ class Translation:
                 Phrase = parser[List][0][Row]
             else:
                 Phrase = parser[List][Row]
-            return Phrase
+            return fixCHars(Phrase)
         except Exception as e:
             filename = "Lang/english.json"
             reader = open(filename, )
@@ -35,7 +46,7 @@ class Translation:
                 Phrase = parser[List][0][Row]
             else:
                 Phrase = parser[List][Row]
-            return Phrase
+            return fixCHars(Phrase)
         
     @staticmethod
     def Check_Language(lang):
