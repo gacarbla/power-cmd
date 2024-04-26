@@ -41,6 +41,11 @@ class Start:
                     "value": "spanish"
                 },
                 {
+                    "name": "Galego",
+                    "default": False,
+                    "value": "galician"
+                },
+                {
                     "name": "Français",
                     "default": False,
                     "value": "french"
@@ -85,7 +90,7 @@ class Start:
                 Clear.Auto()
                 if (keymap["1"] and selected == 1):
                     keymap = default.copy()
-                    break
+                    exit()
                 elif (keymap["28"]):
                     keymap = default.copy()
                     selected = 1

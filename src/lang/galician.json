@@ -1,0 +1,17 @@
+{
+    "Menu": {
+        "headerdefault"     : "Directorios dispoñibles",
+        "errordefault"      : "Redireccións dispoñibles",
+        "error404message"   : "Compoñente non atopado."
+    },
+    "Filemanager": {
+        "": ""
+    },
+    "Config": {
+        "title": "Configuración",
+        "navigation_esc": "Saír",
+        "navigation_debug": "Debug",
+        "navigation_1": "Navigar",
+        "navigation_2": "Elixir"
+    }
+}
